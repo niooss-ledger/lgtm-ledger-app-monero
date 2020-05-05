@@ -196,6 +196,9 @@ delete:
 -include Makefile.rules
 include $(BOLOS_SDK)/Makefile.rules
 
+all-but-nolink: $(OBJECT_FILES) $(SCRIPT_LD)
+	@echo "compiling all files done."
+
 #add dependency on custom makefile filename
 dep/%.d: %.c Makefile
 

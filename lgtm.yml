@@ -1,5 +1,8 @@
 # Test with:
-# apt install build-essential clang gcc-arm-linux-gnueabihf gcc-arm-none-eabi git libudev-dev libusb-1.0-0-dev python3 python3-pil python3-pip
+# podman run --rm -v $(pwd):/code -ti ubuntu:19.10 bash
+# apt update && apt install -y build-essential clang gcc-arm-linux-gnueabihf gcc-arm-none-eabi git libudev-dev libusb-1.0-0-dev python3 python3-pil python3-pip
+# cd /code
+# # Run commands from "configure" and "build_command" sections
 extraction:
   cpp:
     prepare:
@@ -20,4 +23,4 @@ extraction:
 
     index:
       build_command:
-      - make BOLOS_SDK=$(pwd)/nanos-secure-sdk VERBOSE=1
+      - make BOLOS_SDK=$(pwd)/nanos-secure-sdk VERBOSE=1 all-but-nolink
