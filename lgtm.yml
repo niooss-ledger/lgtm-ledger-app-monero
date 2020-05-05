@@ -1,0 +1,23 @@
+# Test with:
+# apt install build-essential clang gcc-arm-linux-gnueabihf gcc-arm-none-eabi git libudev-dev libusb-1.0-0-dev python3 python3-pil python3-pip
+extraction:
+  cpp:
+    prepare:
+      packages:
+      - clang
+      - gcc-arm-linux-gnueabihf
+      - gcc-arm-none-eabi
+      - libudev-dev
+      - libusb-1.0-0-dev
+      - python3
+      - python3-pil
+      - python3-pip
+
+    configure:
+      command:
+      - git clone https://github.com/LedgerHQ/nanos-secure-sdk
+      - pip3 install --user ledgerblue
+
+    index:
+      build_command:
+      - make BOLOS_SDK=$(pwd)/nanos-secure-sdk VERBOSE=1

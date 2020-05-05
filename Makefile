@@ -155,6 +155,10 @@ CC       := $(CLANGPATH)clang
 #CFLAGS   += -O0 -gdwarf-2  -gstrict-dwarf
 CFLAGS   += -O3 -Os
 #CFLAGS   += -fno-jump-tables -fno-lookup-tables -fsave-optimization-record
+
+# Dirty hack for Ubuntu, otherwise bits/libc-header-start.h is not found
+CFLAGS += -I/usr/arm-linux-gnueabihf/include
+
 #$(info $(CFLAGS))
 
 AS     := $(GCCPATH)arm-none-eabi-gcc
